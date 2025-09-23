@@ -4,8 +4,14 @@ import Layout from '../layouts/Layout.astro';
 
 const pageTitle = 'About Me';
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const identity = {
+  firstName: 'Michael',
+  country: 'US',
+  occupation: 'Aspiring Coder',
+  hobbies: ['photography', 'reading'],
+};
+
+const skills = ['HTML', 'CSS', 'JavaScript', 'Astro', 'Writing Docs'];
 ---
 
 <Layout>
@@ -21,4 +27,21 @@ const pageTitle = 'About Me';
     This site will update as I complete more of the tutorial, so keep checking
     back and see how my journey is going!
   </p>
+
+  <p>Here are a few facts about me:</p>
+  <ul>
+    <li>My name is {identity.firstName}.</li>
+    <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+    {
+      identity.hobbies.length >= 2 && (
+        <li>
+          Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}
+        </li>
+      )
+    }
+  </ul>
+  <p>My skills are:</p>
+  <ul>
+    {skills.map((skill) => <li>{skill}</li>)}
+  </ul>
 </Layout>
