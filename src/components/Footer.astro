@@ -1,0 +1,20 @@
+---
+import Social from './Social.astro';
+
+const username = 'reznaeous';
+---
+
+<footer>
+  <Social platform="twitter" username={username} />
+  <Social platform="github" username={username} />
+  <Social platform="youtube" username={username} />
+</footer>
+
+<style>
+  footer {
+    padding-bottom: 5rem;
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+</style>
