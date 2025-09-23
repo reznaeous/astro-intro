@@ -1,8 +1,5 @@
 ---
-import WelcomeAbout from '../components/WelcomeAbout.astro';
-import Layout from '../layouts/Layout.astro';
-
-import '../styles/global.css';
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageTitle = 'About Me';
 
@@ -24,8 +21,7 @@ const fontWeight = 'bold';
 const textCase = 'uppercase';
 ---
 
-<Layout>
-  <h1>{pageTitle}</h1>
+<BaseLayout pageTitle={pageTitle}>
   <h2>... and my new Astro site!</h2>
 
   <p>
@@ -67,7 +63,7 @@ const textCase = 'uppercase';
     )
   }
 
-  <style define:vars={{ skillColor, fontWeight, textCase }}>
+  <style is:global define:vars={{ skillColor, fontWeight, textCase }}>
     h1 {
       color: purple;
       font-size: 4rem;
@@ -78,4 +74,4 @@ const textCase = 'uppercase';
       text-transform: var(--textCase);
     }
   </style>
-</Layout>
+</BaseLayout>
